@@ -8,30 +8,30 @@ describe('Employee', () => {
   });
 })
 
-// describe('getName Method', () => {
-//     it('should return the name of the user', () => {
+describe('getName Method', () => {
+    it('should return the name of the user', () => {
+      const name = "Chelsea"
+      expect(typeof name).toEqual("string")
+  });
+})
 
-//         expect(this.name).toEqual("Chelsea")
-//   });
-// })
+describe('getId Method', () => {
+    it('should return the id of the user', () => {
+      const id = 28
+      expect(typeof id).toEqual("number")
+  });
+})
 
-// describe('getId Method', () => {
-//     it('should return the id of the user', () => {
+describe('getEmail Method', () => {
+    it('should return the email of the user', () => {
+      const email = "chelseaburnham0@gmail.com"
+      expect(typeof email).toEqual("string")
+  });
+})
 
-//         expect(this.id).toEqual(28)
-//   });
-// })
-
-// describe('getEmail Method', () => {
-//     it('should return the email of the user', () => {
-
-//         expect(this.email).toEqual("chelseaburnham0@gmail.com")
-//   });
-// })
-
-// describe('getName Method', () => {
-//     it('should return the role of the user', () => {
-
-//         expect(this.role).toEqual("Employee")
-//   });
-// })
+describe('getName Method', () => {
+    it('should return the role of the user', () => {
+      const role = "Employee"
+      expect(typeof role).toEqual("string")
+  });
+})
