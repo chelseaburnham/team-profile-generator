@@ -1,10 +1,10 @@
 const Employee = require("../lib/Employee")
  
 describe('Employee', () => {
-    it('should ', () => {
-        const employee = new Employee("Jane", 28, "janedoe@gmail.com");
+    it('should return employee object with user input', () => {
+        const employee = new Employee("Chelsea", 28, "chelseaburnham0@gmail.com", "Employee");
 
-        expect().toEqual({name: "Jane", age: 28, email: "janedoe@gmail.com"});
+        expect(employee).toEqual({name: "Chelsea", age: 28, email: "chelseaburnham0@gmail.com", role: "Employee"});
     });
   
     it('', () => {
