@@ -7,31 +7,6 @@ const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern")
 var teamProfile = []
 
-function addTeamMember() {
-    inquirer
-        .prompt([
-            {
-                type: "list",
-                message: "Enter your role",
-                name: "role",
-                choices: ["Manager", "Engineer", "Intern", "None"]
-            }
-        ])
-        .then((initialRole) => {
-            if (initialRole.role === "Manager") {
-                managerQuestions(initialRole.name, initialRole.id, initialRole.email, initialRole.role);
-            } else if (initialRole.role === "Engineer") {
-                engineerQuestions(initialRole.name, initialRole.id, initialRole.email, initialRole.role);
-            } else if (initialRole.role === "Intern") {
-                internQuestions(initialRole.name, initialRole.id, initialRole.email, initialRole.role);
-            } else {
-                fs.writeFile("index.html", generateHtml(teamProfile), (err) =>
-                    err ? console.error(err) : console.log("Success!")
-                )
-            }
-        })
-}
-
 function managerQuestions() {
     inquirer
         .prompt([
@@ -60,6 +35,29 @@ function managerQuestions() {
             const newManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.office);
             teamProfile.push(newManager);
             addTeamMember();
+        })
+}
+
+function addTeamMember() {
+    inquirer
+        .prompt([
+            {
+                type: "list",
+                message: "Enter your role",
+                name: "role",
+                choices: ["Engineer", "Intern", "None"]
+            }
+        ])
+        .then((initialRole) => {
+            if (initialRole.role === "Engineer") {
+                engineerQuestions(initialRole.name, initialRole.id, initialRole.email, initialRole.role);
+            } else if (initialRole.role === "Intern") {
+                internQuestions(initialRole.name, initialRole.id, initialRole.email, initialRole.role);
+            } else {
+                fs.writeFile("index.html", generateHtml(teamProfile), (err) =>
+                    err ? console.error(err) : console.log("Success!")
+                )
+            }
         })
 }
 
@@ -125,4 +123,4 @@ function internQuestions() {
         })
 }
 
-addTeamMember()
+managerQuestions()
