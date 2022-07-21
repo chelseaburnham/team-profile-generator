@@ -4,28 +4,40 @@ function generateHtml(teamProfile) {
   console.log(teamProfile)
   for (let i = 0; i < teamProfile.length; i++) {
     if (teamProfile[i].role == "Manager") {
-      teamCards += `<div class="card-body">
+      teamCards += `<div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
           <h5 class="card-title">${teamProfile[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
           <p class="card-text">ID: ${teamProfile[i].id}</p>
           <p class="card-text">Office Number: ${teamProfile[i].office}</p>
           <p class="card-text">Email: ${teamProfile[i].email}</p>
+          </div>
+          </div>
         </div>`
     } else if (teamProfile[i].role == "Engineer") {
-      teamCards += `<div class="card-body">
+      teamCards += `<div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
           <h5 class="card-title">${teamProfile[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
           <p class="card-text">ID: ${teamProfile[i].id}</p>
           <p class="card-text">Email: ${teamProfile[i].email}</p>
           <p class="card-text">Github: ${teamProfile[i].github}</p>
+          </div>
+          </div>
         </div>`
-    } else if(teamProfile[i].role == "Intern") {
-      teamCards += `<div class="card-body">
+    } else if (teamProfile[i].role == "Intern") {
+      teamCards += `<div class="col mb-4">
+      <div class="card">
+        <div class="card-body">
             <h5 class="card-title">${teamProfile[i].name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
             <p class="card-text">ID: ${teamProfile[i].id}</p>
             <p class="card-text">Email: ${teamProfile[i].email}</p>
             <p class="card-text">School: ${teamProfile[i].school}</p>
+            </div>
+            </div>
           </div>`
     }
   }
@@ -44,7 +56,7 @@ function generateHtml(teamProfile) {
               <h1 class="display-4 text-center">My Team</h1>
             </div>
         </header>
-        <main class="card" style="width: 18rem;">
+        <main class="row row-cols-1 row-cols-md-3">
             ${teamCards}
         </main>
     </body>
