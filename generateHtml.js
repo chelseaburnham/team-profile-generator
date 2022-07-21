@@ -1,5 +1,34 @@
 // generates HTML info 
-  function generateHtml(response) {
+  function generateHtml(employeeData) {
+    var teamCards = ""
+      for (let i=0; i < employeeData.length; i++) {
+        if(employeeData.role === "Manager") {
+          teamCards += `<div class="card-body">
+          <h5 class="card-title">${response.name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
+          <p class="card-text">ID: ${response.id}</p>
+          <p class="card-text">Office Number: ${response.office}</p>
+          <a href="${response.email}" class="card-link" target="_blank">Email</a>
+        </div>`
+        } else if (employeeData.role === "Engineer") {
+          teamCards += `<div class="card-body">
+          <h5 class="card-title">${response.name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
+          <p class="card-text">ID: ${response.id}</p>
+          <p class="card-text">Office Number: ${response.office}</p>
+          <a href="${response.email}" class="card-link" target="_blank">Email</a>
+        </div>`
+        } else {
+            teamCards += `<div class="card-body">
+            <h5 class="card-title">${response.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
+            <p class="card-text">School: ${response.school}</p>
+            <p class="card-text">ID: ${response.id}</p>
+            <p class="card-text">Office Number: ${response.office}</p>
+            <a href="${response.email}" class="card-link" target="_blank">Email</a>
+          </div>`
+        }
+      }
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -16,7 +45,15 @@
             </div>
         </header>
         <main class="card" style="width: 18rem;">
-            <div class="card-body">
+            ${teamCards}
+        </main>
+    </body>
+    </html>`
+  }
+  
+  module.exports = generateHtml;
+  
+  <div class="card-body">
               <h5 class="card-title">${response.name}</h5>
               <h6 class="card-subtitle mb-2 text-muted">${response.role}</h6>
               <p class="card-text">ID: ${response.id}</p>
@@ -25,10 +62,3 @@
               <a href="${response.email}" class="card-link" target="_blank">Email</a>
               <a href="${response.github}" class="card-link" target="_blank">GitHub</a>
             </div>
-        </main>
-    </body>
-    </html>`
-  }
-  
-  module.exports = generateHtml;
-  
