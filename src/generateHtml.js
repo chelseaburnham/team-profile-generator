@@ -1,6 +1,7 @@
 // generates HTML info 
 function generateHtml(teamProfile) {
   var teamCards = "";
+  console.log(teamProfile)
   for (let i = 0; i < teamProfile.length; i++) {
     if (teamProfile.role === "Manager") {
       teamCards += `<div class="card-body">
