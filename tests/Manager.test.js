@@ -1,44 +1,43 @@
 const Manager = require("../lib/Manager")
 
 describe('Manager', () => {
-    it('should return manager object with user input', () => {
-        const manager = new Manager("Chelsea", 28, "chelseaburnham0@gmail.com", "Manager", 2);
-
-        expect(manager).toEqual({name: "Chelsea", id: 28, email: "chelseaburnham0@gmail.com", role: "Manager", officeNumber: 2});
-  });
+  it('should return manager object', () => {
+      const manager = new Manager("Chelsea", 2, "chelseaburnham0@gmail.com", 25);
+      expect(manager).toEqual({name: "Chelsea", id: 2, email: "chelseaburnham0@gmail.com", officeNumber: 25});
+});
 })
 
 describe('getName Method', () => {
-    it('should return the name of the user', () => {
-      const name = "Chelsea"
-      expect(typeof name).toEqual("string")
-  });
+  it('should return the name of the manager', () => {
+    const manager = new Manager("Chelsea", 2, "chelseaburnham0@gmail.com", 25);
+    expect(manager.getName()).toEqual("Chelsea")
+});
 })
 
 describe('getId Method', () => {
-    it('should return the id of the user', () => {
-      const id = 28
-      expect(typeof id).toEqual("number")
-  });
+  it('should return the id of the manager', () => {
+    const manager = new Manager("Chelsea", 2, "chelseaburnham0@gmail.com", 25);
+    expect(manager.getId()).toEqual(2)
+});
 })
 
 describe('getEmail Method', () => {
-    it('should return the email of the user', () => {
-      const email = "chelseaburnham0@gmail.com"
-      expect(typeof email).toEqual("string")
-  });
+  it('should return the email of the manager', () => {
+    const manager = new Manager("Chelsea", 2, "chelseaburnham0@gmail.com", 25);
+    expect(manager.getEmail()).toEqual("chelseaburnham0@gmail.com")
+});
 })
 
-describe('getName Method', () => {
-    it('should return the role of the user', () => {
-      const role = "Manager"
-      expect(typeof role).toEqual("string")
-  });
+describe('getRole Method', () => {
+  it('should return the role of the manager', () => {
+    const manager = new Manager("Chelsea", 2, "chelseaburnham0@gmail.com", 25);
+    expect(manager.getRole()).toEqual("Manager")
+});
 })
 
 describe('getOfficeNumber Method', () => {
-    it('should return the office number of the user', () => {
-      const officeNumber = 2
-      expect(typeof officeNumber).toEqual("number")
-  });
+  it('should return the github account of the manager', () => {
+    const manager = new Manager("Chelsea", 2, "chelseaburnham0@gmail.com", 25);
+    expect(manager.getOfficeNumber()).toEqual(25)
+});
 })
