@@ -81,8 +81,8 @@ function engineerQuestions() {
                 name: "github"
             },
         ])
-        .then((engAnswers) => {
-            const newEngineer = new Engineer(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.office);
+        .then((engineerAnswers) => {
+            const newEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.office);
             teamProfile.push(newEngineer);
             addTeamMember();
         })
@@ -112,9 +112,9 @@ function internQuestions() {
                 name: "school"
             },
         ])
-        .then((intAnswers) => {
-            const newEngineer = new Engineer(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.office);
-            teamProfile.push(newEngineer);
+        .then((internAnswers) => {
+            const newIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.office);
+            teamProfile.push(newIntern);
             addTeamMember();
         })
 }
