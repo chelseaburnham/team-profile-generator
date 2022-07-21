@@ -7,46 +7,20 @@ const Manager = require("./lib/Manager")
 const Intern = require("./lib/Intern")
 var teamProfile = []
 
-inquirer
-    .prompt([
-        {
-            type: "input",
-            message: "What is the manager's name?",
-            name: "name"
-        },
-        {
-            type: "input",
-            message: "What is your id?",
-            name: "id"
-        },
-        {
-            type: "input",
-            message: "What is your email?",
-            name: "email"
-        },
-        {
-            type: "input",
-            message: "What is the office number?",
-            name: "office"
-        }
-    ])
-    .then((managerAnswers) => {
-        const newManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.office);
-        teamProfile.push(newManager);
-        addTeamMember();
-    })
 function addTeamMember() {
     inquirer
         .prompt([
             {
                 type: "list",
-                message: "Please select the option that applies.",
+                message: "Enter your role",
                 name: "role",
-                choices: ["Engineer", "Intern", "None"]
+                choices: ["Manager", "Engineer", "Intern", "None"]
             }
         ])
         .then((initialRole) => {
-            if (initialRole.role === "Engineer") {
+            if (initialRole.role === "Manager") {
+                managerQuestions(initialRole.name, initialRole.id, initialRole.email);
+            } else if (initialRole.role === "Engineer") {
                 engineerQuestions(initialRole.name, initialRole.id, initialRole.email);
             } else if (initialRole.role === "Intern") {
                 internQuestions(initialRole.name, initialRole.id, initialRole.email);
@@ -57,22 +31,54 @@ function addTeamMember() {
             }
         })
 }
+
+function managerQuestions() {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                message: "Enter your name",
+                name: "name"
+            },
+            {
+                type: "input",
+                message: "Enter your id",
+                name: "id"
+            },
+            {
+                type: "input",
+                message: "Enter your email",
+                name: "email"
+            },
+            {
+                type: "input",
+                message: "Enter your office number",
+                name: "office"
+            }
+        ])
+        .then((managerAnswers) => {
+            const newManager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.office);
+            teamProfile.push(newManager);
+            addTeamMember();
+        })
+}
+
 function engineerQuestions() {
     inquirer
         .prompt([
             {
                 type: "input",
-                message: "What is your name?",
+                message: "Enter your name",
                 name: "name"
             },
             {
                 type: "input",
-                message: "What is your id?",
+                message: "Enter your id",
                 name: "id"
             },
             {
                 type: "input",
-                message: "What is your email?",
+                message: "Enter your email",
                 name: "email"
             },
             {
@@ -93,17 +99,17 @@ function internQuestions() {
         .prompt([
             {
                 type: "input",
-                message: "What is your name?",
+                message: "Enter your name",
                 name: "name"
             },
             {
                 type: "input",
-                message: "What is your id?",
+                message: "Enter your id",
                 name: "id"
             },
             {
                 type: "input",
-                message: "What is your email?",
+                message: "Enter your email",
                 name: "email"
             },
             {
@@ -118,6 +124,130 @@ function internQuestions() {
             addTeamMember();
         })
 }
+
+addTeamMember()
+
+
+// function addTeamMember() {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: "input",
+//                 message: "Enter your name",
+//                 name: "name"
+//             },
+//             {
+//                 type: "input",
+//                 message: "Enter your id",
+//                 name: "id"
+//             },
+//             {
+//                 type: "input",
+//                 message: "Enter your email",
+//                 name: "email"
+//             }
+//         ])
+//         .then((initialRole) => {
+//             if (initialRole.role === "Manager") {
+//                 managerQuestions(initialRole.name, initialRole.id, initialRole.email);
+//             } else if (initialRole.role === "Engineer") {
+//                 engineerQuestions(initialRole.name, initialRole.id, initialRole.email);
+//             } else if (initialRole.role === "Intern") {
+//                 internQuestions(initialRole.name, initialRole.id, initialRole.email);
+//             } else {
+//                 fs.writeFile("index.html", generateHtml(teamProfile), (err) =>
+//                     err ? console.error(err) : console.log("Success!")
+//                 )
+//             }
+//         })
+// }
+
+
+
+
+// function addTeamMember() {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: "list",
+//                 message: "Please select the option that applies.",
+//                 name: "role",
+//                 choices: ["Engineer", "Intern", "None"]
+//             }
+//         ])
+        // .then((initialRole) => {
+        //     if (initialRole.role === "Engineer") {
+        //         engineerQuestions(initialRole.name, initialRole.id, initialRole.email);
+        //     } else if (initialRole.role === "Intern") {
+        //         internQuestions(initialRole.name, initialRole.id, initialRole.email);
+        //     } else {
+        //         fs.writeFile("index.html", generateHtml(teamProfile), (err) =>
+        //             err ? console.error(err) : console.log("Success!")
+        //         )
+        //     }
+//         })
+// }
+// function engineerQuestions() {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: "input",
+//                 message: "What is your name?",
+//                 name: "name"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is your id?",
+//                 name: "id"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is your email?",
+//                 name: "email"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is your github link?",
+//                 name: "github"
+//             },
+//         ])
+//         .then((engineerAnswers) => {
+//             const newEngineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.office);
+//             teamProfile.push(newEngineer);
+//             addTeamMember();
+//         })
+// }
+
+// function internQuestions() {
+//     inquirer
+//         .prompt([
+//             {
+//                 type: "input",
+//                 message: "What is your name?",
+//                 name: "name"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is your id?",
+//                 name: "id"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is your email?",
+//                 name: "email"
+//             },
+//             {
+//                 type: "input",
+//                 message: "What is the name of your school?",
+//                 name: "school"
+//             },
+//         ])
+//         .then((internAnswers) => {
+//             const newIntern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.office);
+//             teamProfile.push(newIntern);
+//             addTeamMember();
+//         })
+// }
 
 
 
