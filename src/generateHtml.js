@@ -11,7 +11,7 @@ function generateHtml(teamProfile) {
           <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
           <p class="card-text">ID: ${teamProfile[i].id}</p>
           <p class="card-text">Office Number: ${teamProfile[i].office}</p>
-          <p class="card-text">Email: ${teamProfile[i].email}</p>
+          <a href="${teamProfile[i].email}">Email</a>
           </div>
           </div>
         </div>`
@@ -22,8 +22,8 @@ function generateHtml(teamProfile) {
           <h5 class="card-title">${teamProfile[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
           <p class="card-text">ID: ${teamProfile[i].id}</p>
-          <p class="card-text">Email: ${teamProfile[i].email}</p>
-          <p class="card-text">Github: ${teamProfile[i].github}</p>
+          <a href="${teamProfile[i].email}">Email</a>
+          <a href="${teamProfile[i].github}" target="_blank">GitHub</a>
           </div>
           </div>
         </div>`
@@ -34,7 +34,7 @@ function generateHtml(teamProfile) {
             <h5 class="card-title">${teamProfile[i].name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
             <p class="card-text">ID: ${teamProfile[i].id}</p>
-            <p class="card-text">Email: ${teamProfile[i].email}</p>
+            <a href="${teamProfile[i].email}">Email</a>
             <p class="card-text">School: ${teamProfile[i].school}</p>
             </div>
             </div>
