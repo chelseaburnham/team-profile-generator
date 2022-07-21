@@ -3,29 +3,29 @@ function generateHtml(teamProfile) {
   var teamCards = "";
   console.log(teamProfile)
   for (let i = 0; i < teamProfile.length; i++) {
-    if (teamProfile.role === "Manager") {
+    if (teamProfile[i].role == "Manager") {
       teamCards += `<div class="card-body">
-          <h5 class="card-title">${teamProfile.name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${teamProfile.role}</h6>
-          <p class="card-text">ID: ${teamProfile.id}</p>
-          <p class="card-text">Office Number: ${teamProfile.office}</p>
-          <a href="${teamProfile.email}" class="card-link" target="_blank">Email</a>
+          <h5 class="card-title">${teamProfile[i].name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
+          <p class="card-text">ID: ${teamProfile[i].id}</p>
+          <p class="card-text">Office Number: ${teamProfile[i].office}</p>
+          <p class="card-text">Email: ${teamProfile[i].email}</p>
         </div>`
-    } else if (teamProfile.role === "Engineer") {
+    } else if (teamProfile[i].role == "Engineer") {
       teamCards += `<div class="card-body">
-          <h5 class="card-title">${teamProfile.name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${teamProfile.role}</h6>
-          <p class="card-text">ID: ${teamProfile.id}</p>
-          <a href="${teamProfile.github}" class="card-link" target="_blank">GitHub</a>
-          <a href="${teamProfile.email}" class="card-link" target="_blank">Email</a>
+          <h5 class="card-title">${teamProfile[i].name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
+          <p class="card-text">ID: ${teamProfile[i].id}</p>
+          <p class="card-text">Email: ${teamProfile[i].email}</p>
+          <p class="card-text">Github: ${teamProfile[i].github}</p>
         </div>`
-    } else {
+    } else if(teamProfile[i].role == "Intern") {
       teamCards += `<div class="card-body">
-            <h5 class="card-title">${teamProfile.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${teamProfile.role}</h6>
-            <p class="card-text">ID: ${teamProfile.id}</p>
-            <p class="card-text">School: ${teamProfile.school}</p>
-            <a href="${teamProfile.email}" class="card-link" target="_blank">Email</a>
+            <h5 class="card-title">${teamProfile[i].name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${teamProfile[i].role}</h6>
+            <p class="card-text">ID: ${teamProfile[i].id}</p>
+            <p class="card-text">Email: ${teamProfile[i].email}</p>
+            <p class="card-text">School: ${teamProfile[i].school}</p>
           </div>`
     }
   }
