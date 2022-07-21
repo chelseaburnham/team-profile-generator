@@ -1,36 +1,34 @@
-const Manager = require("./lib/Manager")
-
 // generates HTML info 
-  function generateHtml(employeeData) {
-    var teamCards = ""
-      for (let i=0; i < employeeData.length; i++) {
-        if(employeeData.role === "Manager") {
-          teamCards += `<div class="card-body">
-          <h5 class="card-title">${employeeData.name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${employeeData.role}</h6>
-          <p class="card-text">ID: ${employeeData.id}</p>
-          <p class="card-text">Office Number: ${employeeData.office}</p>
-          <a href="${employeeData.email}" class="card-link" target="_blank">Email</a>
+function generateHtml(teamProfile) {
+  var teamCards = "";
+  for (let i = 0; i < teamProfile.length; i++) {
+    if (teamProfile.role === "Manager") {
+      teamCards += `<div class="card-body">
+          <h5 class="card-title">${teamProfile.name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${teamProfile.role}</h6>
+          <p class="card-text">ID: ${teamProfile.id}</p>
+          <p class="card-text">Office Number: ${teamProfile.office}</p>
+          <a href="${teamProfile.email}" class="card-link" target="_blank">Email</a>
         </div>`
-        } else if (employeeData.role === "Engineer") {
-          teamCards += `<div class="card-body">
-          <h5 class="card-title">${employeeData.name}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">${employeeData.role}</h6>
-          <p class="card-text">ID: ${employeeData.id}</p>
-          <a href="${employeeData.github}" class="card-link" target="_blank">GitHub</a>
-          <a href="${employeeData.email}" class="card-link" target="_blank">Email</a>
+    } else if (teamProfile.role === "Engineer") {
+      teamCards += `<div class="card-body">
+          <h5 class="card-title">${teamProfile.name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${teamProfile.role}</h6>
+          <p class="card-text">ID: ${teamProfile.id}</p>
+          <a href="${teamProfile.github}" class="card-link" target="_blank">GitHub</a>
+          <a href="${teamProfile.email}" class="card-link" target="_blank">Email</a>
         </div>`
-        } else {
-            teamCards += `<div class="card-body">
-            <h5 class="card-title">${employeeData.name}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">${employeeData.role}</h6>
-            <p class="card-text">ID: ${employeeData.id}</p>
-            <p class="card-text">School: ${employeeData.school}</p>
-            <a href="${employeeData.email}" class="card-link" target="_blank">Email</a>
+    } else {
+      teamCards += `<div class="card-body">
+            <h5 class="card-title">${teamProfile.name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">${teamProfile.role}</h6>
+            <p class="card-text">ID: ${teamProfile.id}</p>
+            <p class="card-text">School: ${teamProfile.school}</p>
+            <a href="${teamProfile.email}" class="card-link" target="_blank">Email</a>
           </div>`
-        }
-      }
-    return `<!DOCTYPE html>
+    }
+  }
+  return `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -50,6 +48,6 @@ const Manager = require("./lib/Manager")
         </main>
     </body>
     </html>`
-  }
-  
-  module.exports = generateHtml;
+}
+
+module.exports = generateHtml;
