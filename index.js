@@ -81,7 +81,7 @@ function engineerQuestions() {
             },
             {
                 type: "input",
-                message: "Enter your github link",
+                message: "Enter your github username",
                 name: "github"
             },
         ])
